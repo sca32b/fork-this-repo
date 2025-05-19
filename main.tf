@@ -7,4 +7,19 @@ resource "aws_s3_bucket" "example" {
   force_destroy = true
 }
 
+resource "aws_s3_bucket_object" "example" {
+  bucket = aws_s3_bucket.example.bucket
+  key    = "example.txt"
+  content = "Hello, World!"
+}
+
+resource "aws_ec2_instance" "example" {
+  ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+}
+
 # Comment

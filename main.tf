@@ -17,4 +17,9 @@ resource "aws_ec2_instance" "example" {
   }
 }
 
+resource "aws_s3_bucket" "bucket2" {
+  bucket = "my-unique-example-bucket-67890"
+  force_destroy = true
+}
+
 # Comment
